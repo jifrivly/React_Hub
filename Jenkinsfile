@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 pipeline {
      agent any
      stages {
