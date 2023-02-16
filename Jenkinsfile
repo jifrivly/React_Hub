@@ -3,14 +3,16 @@ pipeline {
      stages {
         stage("Build") {
             steps {
-                sh "npm install"
-                sh "npm run build"
+                nodejs('NodeJS 16.15.0') {
+                    sh "npm i"
+                    sh "npm run build"
+                }
             }
         }
         stage("Deploy") {
             steps {
-                sh "rm -rf /var/www/jenkins-react-app"
-                sh "cp -r ${WORKSPACE}/build/ /var/www/jenkins-react-app/"
+                sh "sudo rm -rf /var/www/jenkins-react-app"
+                sh "sudo cp -r ${WORKSPACE}/build/ /var/www/jenkins-react-app/"
             }
         }
     }
