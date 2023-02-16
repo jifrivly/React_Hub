@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouteObject, redirect } from 'react-router-dom';
-import { Home, Examples, Features, Counter } from './Routes';
+import { Home, Examples, Features, Counter, Checkbox } from './Routes';
 import App from './App';
 import { BASE_PATH } from './constants/App.constants';
 
@@ -28,6 +28,12 @@ export const featureRoutesList: IRoute[] = [
     name: 'Counter',
     path: '/counter',
     element: <Counter />,
+    loader: () => <>Loading....</>,
+  },
+  {
+    name: 'Checkbox',
+    path: '/checkbox',
+    element: <Checkbox />,
     loader: () => <>Loading....</>,
   },
 ];

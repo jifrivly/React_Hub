@@ -1,0 +1,14 @@
+.main-container {
+  width: 300px;
+}
+
+.checkbox-container {
+  /* width: 25%; */
+  height: 350px;
+  background-color: darkgray;
+  overflow: auto;
+}
+
+ul > li.selected-item {
+    background-color: gainsboro;
+}
