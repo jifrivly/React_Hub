@@ -1,3 +1,4 @@
+// eslint-disable
 import React, { useEffect, useState } from 'react';
 // import acrossTabs from 'across-tabs';
 
@@ -9,8 +10,8 @@ import './style.css';
 //   name?: string;
 // }
 
+const channel: BroadcastChannel = new BroadcastChannel('selectedList');
 export function Checkbox(): React.ReactElement {
-  const channel: BroadcastChannel = new BroadcastChannel('selectedList');
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const checkboxList: Array<{ value: string; label: string }> = [...new Array<string>(500)]
     .fill('Item')
