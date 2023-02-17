@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import acrossTabs from 'across-tabs';
 
-import { CustomCheckbox, CustomCheckbox2 } from '../../Components';
+import { CustomCheckbox2 } from '../../Components';
 
 import './style.css';
 
@@ -22,10 +22,10 @@ export function Checkbox(): React.ReactElement {
 
   useEffect(() => {
     // window.addEventListener('storage', onStorageUpdate);
-    channel.addEventListener('message', (event: MessageEvent<string[]>) => {
+    channel.onmessage = (event: MessageEvent<string[]>) => {
       console.log('🚀 ~ file: index.tsx:27 ~ channel.addEventListener ~ event', event.data);
       setSelectedItems(event.data);
-    });
+    };
     console.log('🚀 ~ file: index.tsx:23 ~ useEffect ~ storage / broadcast event listener added');
 
     return () => {
@@ -43,13 +43,13 @@ export function Checkbox(): React.ReactElement {
   //   };
   // }, []);
 
-  const onStorageUpdate = (storageEvent: StorageEvent): any => {
-    const { storageArea, oldValue, newValue, key } = storageEvent;
-    const selectedItems: string[] = JSON.parse(localStorage.getItem('selectedItems') ?? '') ?? [];
-    console.log('🚀 ~ file: index.tsx:41 ~ onStorageUpdate ~ storageEvent - ', storageArea, oldValue, newValue, key);
-    console.log('🚀 ~ file: index.tsx:42 ~ onStorageUpdate ~ selectedItems - ', selectedItems);
-    setSelectedItems(selectedItems);
-  };
+  // const onStorageUpdate = (storageEvent: StorageEvent): any => {
+  //   const { storageArea, oldValue, newValue, key } = storageEvent;
+  //   const selectedItems: string[] = JSON.parse(localStorage.getItem('selectedItems') ?? '') ?? [];
+  //   console.log('🚀 ~ file: index.tsx:41 ~ onStorageUpdate ~ storageEvent - ', storageArea, oldValue, newValue, key);
+  //   console.log('🚀 ~ file: index.tsx:42 ~ onStorageUpdate ~ selectedItems - ', selectedItems);
+  //   setSelectedItems(selectedItems);
+  // };
   // useEffect(() => {
   //   console.log('Across tabs - ', acrossTabs);
   // }, []);
